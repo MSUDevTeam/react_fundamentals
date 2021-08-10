@@ -20,7 +20,6 @@ class TapGestureTutorial extends Component {
     if (event.nativeEvent.state === State.ACTIVE) {
       Alert.alert("double tap!")
     }
-
   }
 
   render() {

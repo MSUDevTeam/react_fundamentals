@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { Button, Text, View, ScrollView, StyleSheet } from 'react-native';
-import HookTutorial from './HookTutorial';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LifeCycle from './LifeCycle';
+import TapGestureTutorial from './TapGestureTutorial';
+
+const Stack = createStackNavigator();
 
 class App extends Component {
   
@@ -10,9 +16,16 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <HookTutorial />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="LifeCycle"
+            component={LifeCycle}
+            options={{ title: 'Welcome' }}
+          />
+          <Stack.Screen name="TapGestureTutorial" component={TapGestureTutorial} />
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
